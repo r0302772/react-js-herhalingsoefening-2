@@ -1,0 +1,11 @@
+image: atlassian/default-image:3
+
+pipelines:
+  branches:
+    main:
+      - step:
+          name: 'Building GitFront'
+          script:
+            - curl --request POST https://console.gitfront.io/api/signin --header Content-Type:text/plain --data-raw '{"email":"'"${GITFRONT_EMAIL}"'","password":"'"$GITFRONT_PASSWORD"'"}' --cookie-jar /tmp/cookies.txt -v
+            - curl --request POST https://console.gitfront.io/api/build --cookie /tmp/cookies.txt --header Content-Type:text/plain --data-raw '{"id":'"$GITFRONT_ID"'}' -v
+
