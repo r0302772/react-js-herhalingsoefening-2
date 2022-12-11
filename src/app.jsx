@@ -1,5 +1,6 @@
 import {Col, Container, Row} from 'react-bootstrap'
 import SideNav from './navigation/sideNav.jsx'
+import Routing from "./routing.jsx";
 
 const App = () => {
     return (
@@ -12,6 +13,7 @@ const App = () => {
                 <Col className="vh-100">
                     <Row className="justify-content-center">
                         {/* PLAATS DE ROUTING COMPONENT HIER */}
+                        <Routing/>
                     </Row>
                 </Col>
             </Row>
